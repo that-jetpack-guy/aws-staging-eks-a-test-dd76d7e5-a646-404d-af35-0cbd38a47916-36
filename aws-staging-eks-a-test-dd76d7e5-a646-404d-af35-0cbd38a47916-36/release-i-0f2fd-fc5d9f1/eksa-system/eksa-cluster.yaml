@@ -39,7 +39,7 @@ spec:
   managementCluster:
     name: release-i-0f2fd-fc5d9f1
   workerNodeGroupConfigurations:
-  - count: 1
+  - count: 3
     machineGroupRef:
       kind: VSphereMachineConfig
       name: release-i-0f2fd-fc5d9f1
@@ -63,8 +63,8 @@ apiVersion: anywhere.eks.amazonaws.com/v1alpha1
 kind: VSphereMachineConfig
 metadata:
   annotations:
-    anywhere.eks.amazonaws.com/etcd: "true"
-  name: release-i-0f2fd-fc5d9f1-etcd
+    anywhere.eks.amazonaws.com/control-plane: "true"
+  name: release-i-0f2fd-fc5d9f1-cp
   namespace: default
 spec:
   datastore: /SDDC-Datacenter/datastore/WorkloadDatastore
@@ -105,8 +105,8 @@ apiVersion: anywhere.eks.amazonaws.com/v1alpha1
 kind: VSphereMachineConfig
 metadata:
   annotations:
-    anywhere.eks.amazonaws.com/control-plane: "true"
-  name: release-i-0f2fd-fc5d9f1-cp
+    anywhere.eks.amazonaws.com/etcd: "true"
+  name: release-i-0f2fd-fc5d9f1-etcd
   namespace: default
 spec:
   datastore: /SDDC-Datacenter/datastore/WorkloadDatastore
